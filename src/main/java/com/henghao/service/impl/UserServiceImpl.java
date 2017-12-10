@@ -64,26 +64,22 @@ public class UserServiceImpl implements IUserService {
         // 对用户输入的原密码进行加密
         String oldPWD = DESEDE.encryptIt(originalPassword);
 
-//        int i = 1/0;
-        // 根据ID查询
+        // 根据ID和原密码查询
         UserExample example = new UserExample();
-        example.or().andIdEqualTo(up.getUid()).andPasswordEqualTo(oldPWD);
+        example.or()
+                .andIdEqualTo(up.getUid())  // id
+                .andPasswordEqualTo(oldPWD);    // 原密码
         List<UserPOJO> users = userDao.selectByExample(example);
         if (users != null && users.size() == 1){
             UserPOJO userPOJO = users.get(0);
-            if (!userPOJO.getPassword().equals(up.getOriginalPassword()))
-                return new Status(StatusEnum.PRAM_ERROR.getCODE(),"原密码错误");
             // 修改密码
             userPOJO.setPassword(newPWD);
+            userDao.updateByExample(userPOJO,example);
+            // 修改成功
+            return new Status(StatusEnum.SUCCESS_UPDATE.getCODE(), StatusEnum.SUCCESS_UPDATE.getEXPLAIN());
         }else {
-            return new Status(StatusEnum.PRAM_ERROR.getCODE(),"查无此人");
+            return new Status(StatusEnum.PRAM_ERROR.getCODE(),"原密码错误");
         }
-
-//        UserExample example = new UserExample();
-//        example.or().andPasswordEqualTo(newPWD);
-//        userDao.upda
-//        userDao.updatePassword(up);
-        return new Status(StatusEnum.SUCCESS_UPDATE.getCODE(), StatusEnum.SUCCESS_UPDATE.getEXPLAIN());
     }
 
 
