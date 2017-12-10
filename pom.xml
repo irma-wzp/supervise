@@ -69,6 +69,44 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- 第三方jar Start-->
+		<dependency>
+			<!--
+			引入第三方jar，以horizon-action-7.2.2.jar为例：
+			1. 在本地仓库目录下：建立 horizon（groupId的值）文件夹
+			2. 在 horizon 文件夹下建立horizon-action（artifactId的值）文件夹
+			3. 在horizon-action文件夹下建立7.2.2文件夹（version的值）
+			4. 将horizon-action-7.2.2.jar放入7.2.2文件夹下。
+			5. 在7.2.2文件夹下新建 horizon-action-7.2.2.pom 文件
+			6. 在 horizon-action-7.2.2.pom 文件中写入如下内容：
+			<project>
+			  <modelVersion>7.2.2</modelVersion>
+			  <groupId>horizon</groupId>
+			  <artifactId>horizon-action</artifactId>
+			  <version>7.2.2</version>
+			</project>
+			7. pom.xml 文件引入
+
+		方式二：
+			<dependency>
+				<groupId>horizon</groupId>
+				<artifactId>horizon-action</artifactId>
+				<version>7.2.2</version>
+				<type>war</type>
+				 <!-注意scope是system->
+				<scope>system</scope>
+				  <systemPath>F:/JAVA/maven/repo/horizon/horizon-action/7.2.2/horizon-action-7.2.2.jar</systemPath>
+				 <!-systemPath 可以写  1 本地路径 也可以写 2 项目根路径,项目根路径不是相对classpath 。->
+			</dependency>
+		-->
+			<groupId>horizon</groupId>
+			<artifactId>horizon-action</artifactId>
+			<version>7.2.2</version>
+		</dependency>
+		<!-- 第三方jar Start-->
+
+
 	</dependencies>
 
 	<build>
