@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 
 /**
  * @author wzp
- * @description: APP端用户控制层
+ * @description APP端用户控制层
  * @update on 2017/12/3.
  */
 @Controller
@@ -35,7 +35,7 @@ public class UserController {
      *
      * @param up 用户密码包装类
      * @return Result
-     * @update: update on 2017/12/4
+     * @update update on 2017/12/4
      */
     @ResponseBody
     @RequestMapping(value = {"/APPpassword"}, produces = {"application/json;charset=utf-8"})
@@ -49,7 +49,7 @@ public class UserController {
      * @param uli        {@link UserLongitude}
      * @param attendance 出勤率
      * @return {@link Result}
-     * @update: update on 2017/12/4
+     * @update update on 2017/12/4
      */
     @ResponseBody
     @RequestMapping(value = {"/LongAndLat"}, produces = {"application/json;charset=utf-8"})
@@ -61,7 +61,7 @@ public class UserController {
      * PC端获取历史经纬度
      *
      * @return {@link Result}
-     * @update: update on 2017/12/4
+     * @update update on 2017/12/4
      */
     @ResponseBody
     @RequestMapping(value = {"/getItude"}, produces = {"application/json;charset=utf-8"})
@@ -74,7 +74,7 @@ public class UserController {
      *
      * @param uid 用户ID
      * @return {@link Result}
-     * @update: update on 2017/12/4
+     * @update update on 2017/12/4
      */
     @ResponseBody
     @RequestMapping(value = {"/myMessages"}, produces = {"application/json;charset=utf-8"})
@@ -146,7 +146,7 @@ public class UserController {
      *
      * @param uid {@code String} 用户ID
      * @return {@link Result}
-     * @create:  2017年4月8日11:19:30
+     * @create  2017年4月8日11:19:30
      */
     @ResponseBody
     @RequestMapping(value = "/showUserImage", produces = "application/json;charset=utf-8")
