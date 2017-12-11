@@ -70,6 +70,15 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- spring boot 热部署 Start-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>provided</scope>
+			<optional>true</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+		</dependency>
+		<!-- spring boot 热部署 End-->
+
 		<!-- 第三方jar Start-->
 		<dependency>
 			<!--
@@ -104,7 +113,7 @@
 			<artifactId>horizon-action</artifactId>
 			<version>7.2.2</version>
 		</dependency>
-		<!-- 第三方jar Start-->
+		<!-- 第三方jar End-->
 
 
 	</dependencies>

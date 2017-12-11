@@ -2,7 +2,6 @@ package com.henghao.config.aop;/**
  * Created by admin on 2017/12/10.
  */
 
-import org.apache.log4j.LogManager;
 import org.slf4j.Logger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +13,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.servlet.http.HttpServletRequest;
 
+import static org.springframework.http.HttpStatus.NOT_EXTENDED;
+
 /**
  * @description: 全局异常处理
  * @auth 王章鹏
@@ -24,13 +25,21 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private static Logger logger = LogManager.getLogger(GlobalExceptionHandler.class.getName());
+//    private static Logger logger = LogManager.getLogger(GlobalExceptionHandler.class.getName());
 
     //    @ExceptionHandler(value={RuntimeException.class,MyRuntimeException.class})
     //    @ExceptionHandler//处理所有异常
     @ExceptionHandler(value = Exception.class)
     public String exceptionHandler(HttpServletRequest request, Exception e) throws Exception {
 
+        String host = request.getRemoteHost();
+        int remotePort = request.getRemotePort();
+        System.out.println(remotePort+"----prot");
+        System.out.println(host);
+        String requestURI = request.getRequestURI();
+        String s = request.getRequestURL().toString();
+        System.out.println(s);
+        System.out.println(requestURI);
         return "index";
     }
 

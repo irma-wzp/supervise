@@ -43,12 +43,14 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * APP端 - 用户修改密码
-     * @update: update on 2017/12/4
+     * @update update on 2017/12/4
      * @param up 用户密码包装类
      * @return Result
      */
     public Status updatePassword(UserPassword up) {
         // 非空验证
+        int i = 5/0;
+        System.out.println(i);
         if (ObjectUtil.propertyIsNull(up))
             // 参数为空
             return new Status(StatusEnum.NO_PRAM.getCODE(), StatusEnum.NO_PRAM.getEXPLAIN());
